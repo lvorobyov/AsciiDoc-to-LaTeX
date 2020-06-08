@@ -1,0 +1,8 @@
+#defaults
+^\.idea
+^\.git
+^Makefile(\.old)?$
+\.bak$
+^MYMETA\.
+^blib
+^pm_to_blib$
