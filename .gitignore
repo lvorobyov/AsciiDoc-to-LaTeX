@@ -8,7 +8,6 @@ MANIFEST
 .build/
 _build/
 .idea/
-t/*.ad
 *.bak
 cover_db/
 blib/

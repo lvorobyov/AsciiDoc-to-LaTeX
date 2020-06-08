@@ -6,3 +6,4 @@
 ^MYMETA\.
 ^blib
 ^pm_to_blib$
+\.adoc$
