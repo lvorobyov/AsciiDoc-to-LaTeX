@@ -16,7 +16,7 @@ TEX
 ok(process_ad($ad) eq $tex, 'inline math');
 
 $ad = q(
-latexmath:[$$ a * (b + c) = a * b + a * c $$] [[eq:distributive]]
+latexmath::[a * (b + c) = a * b + a * c] [[eq:distributive]]
 );
 
 $tex = q(
@@ -27,7 +27,7 @@ a \times (b + c) = a \times b + a \times c
 
 ok(process_ad($ad) eq $tex, 'display math with label');
 
-ok(to_latex('latexmath:[$$ a * b = b * a $$]') eq '$$ a \times b = b \times a $$', 'display math');
+ok(to_latex('latexmath::[a * b = b * a]') eq '$$ a \times b = b \times a $$', 'display math');
 
 $ad = <<AD;
 The _easiest_ way to type *math* equation is latexmath:[a_i + b_i * c_i \\forall i \\in R].

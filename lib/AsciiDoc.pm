@@ -78,7 +78,8 @@ sub to_latex {
     my $scl = ($#arr == -1) ? '' : join(',', @arr);
     $scl =~ s/(.+)/[$1]/;
     $_ = qq($pre\\inputminted$scl\{$lang\}{$src}$post);
-  } elsif (s/^latexmath:\[\$\$\s*(.+?)\s*\$\$\]\s*\[{2}([\w:]+)\]{2}/\\begin{equation}\\label{$2}\n$1\n\\end{equation}/) {
+  } elsif (s/^latexmath::\[\s*(.+?)\s*\]\s*\[{2}([\w:]+)\]{2}/\\begin{equation}\\label{$2}\n$1\n\\end{equation}/) {
+  } elsif (s/^latexmath::\[\s*(.+?)\s*\]/\$\$ $1 \$\$/) {
   } elsif (s/^:toc:$/\\tableofcontents/) {
   } elsif (s/^:bibtex-file: (.+?)(?:\.bib)?$//) {
 	  $bibfile = $1;
@@ -98,7 +99,7 @@ sub to_latex {
     s/<<([\w:-]+?),(.+?)>>/\n$2~\\ref{$1}\n/g;
     s/(https?:\S+?)(?<!\})\[(.+?)\]/\n\\href{$1}{$2}\n/g;
     s/(?<!\{)(https?:\S+)/\n\\url{$1}\n/g;
-    s/(latex|ascii)math:\[(\$?)(.+?)\g2\]/\n\$$3\$\n/g;
+    s/(latex|ascii)math:+\[(\$?)(.+?)\g2\]/\n\$$3\$\n/g;
     s/\[(\w+line)\]#(.+?)#/\\$1\{$2\}/g;
     s/`(\S+?)`/\n\\verb|$1|\n/g;
     s/`(.+?)`/\n\\texttt{$1}\n/g;

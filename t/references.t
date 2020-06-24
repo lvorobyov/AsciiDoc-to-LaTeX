@@ -10,7 +10,7 @@ my $ad = q(
 [[app:animals]]
 
 On the <<fig:cat,fig.>> you can see, that sizes of cats and dogs are correlated as explained in formula <<eq:relation>>
-latexmath:[$$ 2 : 3 $$] [[eq:relation]]
+latexmath::[2 : 3] [[eq:relation]]
 
 Next, suppose that beginners in small science of animal say footnote:[Regardless rank or social status]
 dogs definitely bigger then cats. Well, but there is a new surprised relation? that he don't know.
