@@ -110,7 +110,7 @@ sub to_latex {
   } else {
     s/\[{2}([\w:]+)\]{2}/\n\\label{$1}\n/;
     s/footnote:\[(.+?)\]/\\footnote{$1}/g;
-    s/cite:\[(\w+)\]/\n\\cite{$1}\n/g;
+    s/cite:\[([\w-]+)\]/\n\\cite{$1}\n/g;
     s/<<(eq:\w+?)>>/\n\\eqref{$1}\n/g;
     s/<<([\w:-]+?)>>/\n\\ref{$1}\n/g;
     s/<<([\w:-]+?),(.+?)>>/\n$2~\\ref{$1}\n/g;
