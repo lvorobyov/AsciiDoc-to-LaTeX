@@ -92,6 +92,7 @@ sub to_latex {
   } elsif (s/^latexmath::\[\s*(.+?)\s*\]\s*\[{2}([\w:]+)\]{2}/\\begin{equation}\\label{$2}\n$1\n\\end{equation}/) {
   } elsif (s/^latexmath::\[\s*(.+?)\s*\]/\$\$ $1 \$\$/) {
   } elsif (s/^:toc:$/\\tableofcontents/) {
+  } elsif (s/^:toclevels: (\d+)$/\\setcounter{tocdepth}{$1}/) {
   } elsif (s/^:bibtex-file: (.+?)(?:\.bib)?$//) {
 	  $bibfile = $1;
   } elsif (s/^:bibtex-style: (.+)$/\\bibliographystyle{$1}/) {
