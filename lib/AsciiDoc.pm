@@ -10,7 +10,7 @@ use Image::Size;
 
 my %attrs;
 my @rspans;
-my($listenv, $tabenv, $block, $ncols, $title, $thead, $verbenv, $bibfile);
+my($listenv, $tabenv, $parenv, $block, $ncols, $title, $thead, $verbenv, $bibfile);
 my $sectnums = '*';
 
 sub get_width {
@@ -49,8 +49,11 @@ sub to_latex {
     }
   } elsif (/^--$/) {
 	unless (defined $block) {
-		$block = 'abstract' if $attrs{abstract};
-		$_ = qq(\\begin{$block});
+		if ($attrs{abstract}) {
+			delete $attrs{abstract};
+			$block = 'abstract';
+			$_ = qq(\\begin{$block});
+		}
 	} else {
 		$_ = qq(\\end{$block});
 		$block = undef;
@@ -136,6 +139,8 @@ sub to_latex {
   } elsif (/^$/) {
     $_ = qq(\\end{$listenv}\n) if (defined $listenv);
     $listenv = undef;
+	$_ = qq(\\end{$parenv}\n) if (defined $parenv);
+	$parenv = undef;
     %attrs = ();
   }
   if (s/^\.([^\d\W].+)//u) {
@@ -225,6 +230,10 @@ sub to_latex {
     }
     @rspans = @rtemp;
     $_ = $cols . $caption . qq($line\n) . $prefix . $_ . ' \\\\ ';
+  } elsif ($attrs{abstract}) {
+	delete $attrs{abstract};
+	$parenv = 'abstract';
+	qq(\\begin{$parenv}\n$_$end);
   } else {
     qq($_$end);
   }
