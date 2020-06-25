@@ -101,6 +101,8 @@ sub to_latex {
 	  $bibfile = $1;
   } elsif (s/^:bibtex-style: (.+)$/\\bibliographystyle{$1}/) {
   } elsif (s/^bibliography::\[\]$/\\bibliography{$bibfile}/) {
+  } elsif (s/^:toc-title: (.+)$/\\renewcommand{\\contentsname}{$1}/) {
+  } elsif (s/^:bib-title: (.+)$/\\renewcommand{\\bibname}{$1}/) {
   } elsif (s/^:(\w+)num: (\d+)$/\\setcounter{$1}{$2}/) {
   } elsif (s/^:(\w+)num: \+(\d+)$/\\addtocounter{$1}{$2}/) {
   } elsif (s/^:(\w+)-caption: (.+)$/\\captionsetup[$1]{name=$2}/) {
