@@ -36,9 +36,9 @@ ok(process_ad($ad) eq $tex, 'minted');
 ok(to_latex('`code`') eq '\verb|code|', 'inline');
 
 $ad = <<AD;
-code::src/main.cpp
-code::src/header.h
-code::src/main.cpp:10
+code::src/main.cpp[]
+code::src/header.h[]
+code::src/main.cpp[lines=10..]
 AD
 
 $tex = <<TEX;
@@ -51,7 +51,7 @@ ok(process_ad($ad) eq $tex, 'minted from file');
 
 $ad = <<AD;
 [columns=2,numbers=none]
-code::results.txt
+code::results.txt[]
 AD
 
 $tex = <<TEX;

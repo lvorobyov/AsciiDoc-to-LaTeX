@@ -71,7 +71,7 @@ sub to_latex {
     my $figenv = (defined $4) ? 'wrapfigure' : 'figure';
     my $figattrs = (defined $4) ? '{' . substr($4, 0, 1) . qq|}{$line_fraction}| : '[H]';
     $_ = qq(\\begin{$figenv}$figattrs\n\\centering\n$graphics\n$caption\n\\end{$figenv});
-  } elsif (/code::?([\.\w\\\/]+\.(\w+))(?::(\d+)(?:-(\d+))?)?/) {
+  } elsif (/code::?([\.\w\\\/]+\.(\w+))\[(?:lines=(\d+)\.\.(?:(\d+))?)?\]/) {
     my ($src, $lang) = ($1, $2);
 	my ($pre, $post) = ('', '');
 	if (exists $attrs{columns}) {
