@@ -11,7 +11,7 @@ use Image::Size;
 my %attrs;
 my @rspans;
 my($listenv, $tabenv, $parenv, $block, $ncols, $title, $thead, $verbenv, $bibfile);
-my $sectnums = '*';
+my $sectnums = '';
 
 sub get_width {
   my $width = 1;

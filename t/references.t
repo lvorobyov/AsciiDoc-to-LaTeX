@@ -21,7 +21,7 @@ More information in http://www.animals.com/dogs and http://www.drawbacks.com[Dra
 );
 
 my $tex = q(
-\chapter*{Appendix}
+\chapter{Appendix}
 \label{app:animals}
 
 On the fig.~\ref{fig:cat} you can see, that sizes of cats and dogs are correlated as explained in formula \eqref{eq:relation}
