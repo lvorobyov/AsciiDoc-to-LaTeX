@@ -99,6 +99,7 @@ sub to_latex {
   } elsif (s/^bibliography::\[\]$/\\bibliography{$bibfile}/) {
   } elsif (s/^:(\w+)num: (\d+)$/\\setcounter{$1}{$2}/) {
   } elsif (s/^:(\w+)num: \+(\d+)$/\\addtocounter{$1}{$2}/) {
+  } elsif (s/^:(\w+)-caption: (.+)$/\\captionsetup[$1]{name=$2}/) {
   } elsif (s/^<<<$/\\newpage/) {
   } elsif (s/^:(!?)sectnums(!?):$//) {
 	  $sectnums = ($1 or $2)? '*' : '';
