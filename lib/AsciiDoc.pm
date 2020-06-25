@@ -4,13 +4,13 @@ use warnings FATAL => 'all';
 use base 'Exporter';
 
 our @EXPORT = qw/to_latex process_ad/;
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use Image::Size;
 
 my %attrs;
 my @rspans;
-my($listenv, $tabenv, $ncols, $title, $thead, $verbenv, $bibfile);
+my($listenv, $tabenv, $block, $ncols, $title, $thead, $verbenv, $bibfile);
 my $sectnums = '*';
 
 sub get_width {
@@ -47,6 +47,14 @@ sub to_latex {
       $_ = qq(\\end{$verbenv});
       $verbenv = undef;
     }
+  } elsif (/^--$/) {
+	unless (defined $block) {
+		$block = 'abstract' if $attrs{abstract};
+		$_ = qq(\\begin{$block});
+	} else {
+		$_ = qq(\\end{$block});
+		$block = undef;
+	}
   } elsif (s/include::?(\S+)\.\w+(\[.*\])?/\\input{$1}/) {
   } elsif (/image::?(\S+)\.(\w+)\[(.+?)(?:,float=(left|right))?\]/) {
     my $label = $1;
