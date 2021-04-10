@@ -306,14 +306,16 @@ L<Swim> can be used as alternative to AscciDoc.
 =head1 REPOSITORY
 
 L<https://github.com/lvorobyov/AsciiDoc-ToLaTeX>
+ 
+=head1 LICENSE AND COPYRIGHT
+ 
+Copyright (c) 2021, Лев Воробьёв
+ 
+Copying and distribution are permitted under the terms of the Artistic
+License 2.0 (L<http://www.opensource.org/licenses/artistic-license-2.0.php>).
 
 =head1 AUTHOR
  
-Lev Vorobyov E<lt>lev.vorobyov@rambler.ruE<gt>
- 
-=head1 COPYRIGHT
- 
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+Лев Воробьёв C<< <lev.vorobyov@rambler.ru> >>
 
 =cut
