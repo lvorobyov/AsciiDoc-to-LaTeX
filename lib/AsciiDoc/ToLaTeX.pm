@@ -13,6 +13,7 @@ my @rspans;
 my($listenv, $tabenv, $parenv, $block, $ncols, $title, $thead, $verbenv, $bibfile, $bibprefix);
 my $sectnums = '';
 $bibprefix = 'print';
+$bibfile = '';
 
 sub get_width {
   my $width = 1;
